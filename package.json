@@ -1,0 +1,31 @@
+{
+  "name": "tsumasakidachi.repos",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "build": "npm run reset && set DEBUG=express-typescript:* && ./node_modules/.bin/tsc",
+    "reset": "if [ -d \"./bin/dist\" ]; then rm -r -f ./bin/dist; fi"
+  },
+  "dependencies": {
+    "@google-cloud/firestore": "^4.7.0",
+    "@google-cloud/storage": "^5.4.0",
+    "@types/http-errors": "^1.8.0",
+    "cookie-parser": "~1.4",
+    "debug": "~2.6",
+    "express": "~4.16",
+    "express-validator": "^6.6",
+    "morgan": "~1.9"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4",
+    "@types/express": "^4.17",
+    "@types/morgan": "^1.9",
+    "@types/node": "^12",
+    "reflect-metadata": "^0.1",
+    "ts-loader": "^8.0",
+    "tsc-watch": "^4.2",
+    "tsyringe": "^4.3",
+    "typescript": "^4.0"
+  }
+}
