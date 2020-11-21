@@ -17,14 +17,14 @@ export class InteriorRepository extends TableRepository<IInteriorStorable> imple
 
     public async store(properties: IInteriorStorable): Promise<void> {
         if(!(await this.projectExists(properties.projectId))) throw new Error("プロジェクト " + properties.projectId + " が存在しません。")
-        if(!(await this.modeExists(properties.modeId))) throw new Error("サービス形態 " + properties.modeId + " が存在しません。")
+        if(properties.modeId && !(await this.modeExists(properties.modeId))) throw new Error("サービス形態 " + properties.modeId + " が存在しません。")
 
         await super.store(properties);
     }
 
     public async update(id: string, properties: IInteriorStorable): Promise<void> {
         if(!(await this.projectExists(properties.projectId))) throw new Error("プロジェクト " + properties.projectId + " が存在しません。")
-        if(!(await this.modeExists(properties.modeId))) throw new Error("サービス形態 " + properties.modeId + " が存在しません。")
+        if(properties.modeId && !(await this.modeExists(properties.modeId))) throw new Error("サービス形態 " + properties.modeId + " が存在しません。")
 
         await super.update(id, properties);
     }

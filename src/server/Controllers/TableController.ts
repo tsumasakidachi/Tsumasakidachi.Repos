@@ -28,7 +28,18 @@ export abstract class TableController<TRepository extends IRepository<TStorable>
         }
     };
 
-    public async update(req: Request, res: Response, next: NextFunction): Promise<void> { };
+    public async update(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            this.validate(req);
+            let props = <TStorable>matchedData(req);
+            await this.repository.update(req.params.id, props);
+
+            res.json({});
+
+        } catch (error) {
+            next(createError(error));
+        }
+    };
 
     public async destroy(req: Request, res: Response, next: NextFunction): Promise<void> { };
 

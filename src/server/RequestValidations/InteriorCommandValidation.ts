@@ -17,6 +17,11 @@ export default checkSchema({
     modeId: {
         in: 'body',
         isString: true,
+        optional: {
+            options: {
+                nullable: true,
+            }
+        },
     },
     floor: {
         in: 'body',
@@ -33,9 +38,19 @@ export default checkSchema({
     area: {
         in: 'body',
         isNumeric: true,
+        optional: {
+            options: {
+                nullable: true,
+            }
+        },
     },
     unitCost: {
         in: 'body',
         isNumeric: true,
+        optional: {
+            options: {
+                nullable: true,
+            }
+        },
     },
 });

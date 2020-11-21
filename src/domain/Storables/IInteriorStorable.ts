@@ -2,7 +2,7 @@ import "reflect-metadata";
 
 export interface IInteriorStorable {
     projectId: string;
-    modeId: string;
+    modeId: string | null;
     floor: string;
     uses: string;
     order: string;

@@ -7,7 +7,7 @@ export class Interior implements IModel, IInteriorStorable {
     public order: string;
     public uses: string;
     public area: number | null;
-    public modeId: string;
+    public modeId: string | null;
     public unitCost: number | null;
 
     constructor(
