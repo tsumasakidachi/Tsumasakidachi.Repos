@@ -36,21 +36,21 @@ export abstract class TableController<TRepository extends IRepository<TStorable>
         const router = express.Router();
 
         if (option.queryValidation != undefined) {
-            if (!(option.disables && !option.disables.includes(ResourceRoute.index)))
+            if (!(option.disables && option.disables.includes(ResourceRoute.index)))
                 router.get("/", option.queryValidation, this.index.bind(this));
 
-            if (!(option.disables && !option.disables.includes(ResourceRoute.show)))
+            if (!(option.disables && option.disables.includes(ResourceRoute.show)))
                 router.get("/:id", option.queryValidation, this.show.bind(this));
         }
 
         if (option.commandValidation != undefined) {
-            if (!(option.disables && !option.disables.includes(ResourceRoute.store)))
+            if (!(option.disables && option.disables.includes(ResourceRoute.store)))
                 router.post("/", option.commandValidation, this.store.bind(this));
 
-            if (!(option.disables && !option.disables.includes(ResourceRoute.upadte)))
+            if (!(option.disables && option.disables.includes(ResourceRoute.upadte)))
                 router.put("/:id", option.commandValidation, this.update.bind(this));
 
-            if (!(option.disables && !option.disables.includes(ResourceRoute.destroy)))
+            if (!(option.disables && option.disables.includes(ResourceRoute.destroy)))
                 router.delete("/:id", this.destroy.bind(this));
         }
 
